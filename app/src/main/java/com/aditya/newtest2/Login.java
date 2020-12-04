@@ -49,8 +49,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginEmail = (EditText) findViewById(R.id.loginEditTextEmail);
-        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         loginPassword = (EditText) findViewById(R.id.loginEditTextPassword);
         loginButton = (Button) findViewById(R.id.loginButton);
         newUserLink = (TextView) findViewById(R.id.new_user_link);
@@ -122,23 +122,6 @@ public class Login extends AppCompatActivity {
                     i.putExtra("STORE_PASSWORD", StorePassword);
                     startActivity(i);
                 }
-//                else {
-//                    Toast.makeText(Login.this, "Check the Email and Password", Toast.LENGTH_SHORT).show();
-//                }
-
-//                st.executeQuery(sql);
-
-//                while(rs.next()) {
-//                    //Retrieve by column name
-//                    Store_ID = rs.getInt("Store_ID");
-//                    StoreEmail = rs.getString("Email");
-//                }
-//                ResultSetMetaData rsmd = rs.getMetaData();
-
-//                while (rs.next()) {
-//                    result += rs.getString(1).toString() + "\n";
-//                }
-//                res = result;
             } catch (Exception e) {
                 e.printStackTrace();
                 res = e.toString();
@@ -152,22 +135,6 @@ public class Login extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             Toast.makeText(Login.this, result, Toast.LENGTH_SHORT).show();
-//            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
-//            i.putExtra("STORE_EMAIL", StoreEmail);
-//            i.putExtra("STORE_PASSWORD", StorePassword);
-//            startActivity(i);
-//            Intent i = new Intent(Login.this,HomeActivity.class);
-//            i.putExtra("STORE_EMAIL", StoreEmail);
-//            i.putExtra("STORE_PASSWORD", StorePassword);
-//            startActivity(i);
-
-
-//            Intent intent = new Intent(getBaseContext(), HomeActivity.class);
-//            intent.putExtra("Email", StoreEmail);
-//            intent.putExtra("Store_ID", Store_ID);
-//            startActivity(intent);
-
-
         }
     }
 
