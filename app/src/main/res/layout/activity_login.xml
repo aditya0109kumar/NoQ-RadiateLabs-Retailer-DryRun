@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="@drawable/login_bg">
+
+
+    <ImageView
+        android:id="@+id/logintext"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:src="@drawable/login_text" />
+
+    <ImageView
+        android:padding="5dp"
+        android:id="@+id/userlogo"
+        android:layout_below="@+id/logintext"
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/user"
+        android:layout_height="100dp"/>
+
+    <EditText
+        android:id="@+id/loginEditTextEmail"
+        android:layout_width="200dp"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:nextFocusForward="@id/loginEditTextPassword"
+        android:layout_centerInParent="true"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawablePadding="12dp"
+        android:inputType="textEmailAddress"
+        android:hint="   Email"
+        android:layout_height="30dp"
+        android:layout_below="@+id/userlogo"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custominput2" />
+
+    <EditText
+        android:padding="5dp"
+        android:id="@+id/loginEditTextPassword"
+        android:layout_width="200dp"
+        android:layout_centerInParent="true"
+        android:hint="   Password"
+        android:drawableStart="@drawable/custom_lock_icon"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawablePadding="12dp"
+        android:inputType="textPassword"
+        android:layout_height="30dp"
+        android:layout_below="@+id/loginEditTextEmail"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custominput2"/>
+    <LinearLayout
+        android:id="@+id/llremembermeforgetpass"
+        android:layout_below="@+id/loginEditTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/remember_me_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Me"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/link_forgot_password"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Forgot Password"/>
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/llremembermeforgetpass"
+        android:text="Login"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/new_user_link"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="  I am a New User"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/loginButton"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

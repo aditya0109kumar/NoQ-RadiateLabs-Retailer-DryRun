@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="166dp"
+            android:layout_height="73dp"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.024"
+            app:srcCompat="@drawable/texthome" />
+
+        <LinearLayout
+            android:id="@+id/welcomell"
+            android:layout_below="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="161dp"
+                android:layout_height="42dp"
+                android:layout_below="@+id/imageView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="50dp"
+                android:text="Welcome"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+            <Button
+                android:id="@+id/editbtn"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:text="Edit"
+                android:background="@drawable/custom_button"/>
+
+            <Button
+                android:id="@+id/logoutBtn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:text="Logout"
+                android:background="@drawable/custom_button"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/userNameLabel"
+            android:layout_width="202dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/welcomell"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Your Store Details"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+             />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_Name"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_Name"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll1"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_Location"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_Location"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll2"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_Address"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_Address"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll4"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll3"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_City"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_City"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll5"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll4"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Pincode"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Pincode"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll6"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll5"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_State"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_State"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll7"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll6"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Store_Country"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Store_Country"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll8"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll7"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Phone_No"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Phone_No"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll9"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll8"
+                tools:ignore="NotSibling">
+
+                <TextView
+
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="in_store"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/in_store"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll10"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll9"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="takeaway"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/takeaway"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll11"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll10"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="home_delivery"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/home_delivery"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll12"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll11"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Delivery_Charge"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Delivery_Charge"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll13"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll12"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Min_Charge"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Min_Charge"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll14"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ll13"
+                tools:ignore="NotSibling">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="Max_Charge"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/Max_Charge"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="*******"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
