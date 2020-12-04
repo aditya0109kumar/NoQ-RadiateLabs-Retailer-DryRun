@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
     TextView newUserLink, forgotPasswordLink;
     CheckBox rememberMeChkBox;
 
+
     private static final String url = "jdbc:mysql://ec2-13-234-120-100.ap-south-1.compute.amazonaws.com:3306/myDB";
     private static final String user = "admin";
     private static final String pass = "Radiate@123";
@@ -55,6 +56,9 @@ public class Login extends AppCompatActivity {
         newUserLink = (TextView) findViewById(R.id.new_user_link);
         forgotPasswordLink = (TextView) findViewById(R.id.link_forgot_password);
         rememberMeChkBox = (CheckBox) findViewById(R.id.remember_me_checkbox);
+
+        loginEmail.setAnimation(bottomAnim);
+        loginPassword.setAnimation(bottomAnim);
 
 
 //        sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
