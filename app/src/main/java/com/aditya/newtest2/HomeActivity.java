@@ -3,6 +3,7 @@ package com.aditya.newtest2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -12,11 +13,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mysql.jdbc.PreparedStatement;
+//import com.mysql.jdbc.PreparedStatement;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -27,9 +29,12 @@ public class HomeActivity extends AppCompatActivity {
     private static final String url = "jdbc:mysql://ec2-13-234-120-100.ap-south-1.compute.amazonaws.com:3306/myDB";
     private static final String user = "admin";
     private static final String pass = "Radiate@123";
-    public String error = "", StoreEmail, StorePassword;
+    private static final String FILE_NAME ="myFile";
+    public String error = "", StoreEmail, StorePassword, emailHomeSP, passHomeSP;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    private long backPressedTime;
+    private  Toast backToast;
 
 
     public String Store_Name = "@", Store_Location = "@", Store_Address = "@", Store_City = "@", Pincode = "@", Store_State = "@", Store_Country = "@", Phone_No = "@", in_store = "@", takeaway = "@", home_delivery = "@";
@@ -46,6 +51,10 @@ public class HomeActivity extends AppCompatActivity {
 
         StoreEmail = getIntent().getStringExtra("STORE_EMAIL");
         StorePassword = getIntent().getStringExtra("STORE_PASSWORD");
+
+//        SharedPreferences sharedPreferences = getSharedPreferences(FILE_NAME, MODE_PRIVATE);
+//        emailHomeSP = sharedPreferences.getString("spemail", "Data not Found");
+//        passHomeSP = sharedPreferences.getString("sppassword", "Data not Found");
 
         sName = (TextView) findViewById(R.id.Store_Name);
         sLocation = (TextView) findViewById(R.id.Store_Location);
@@ -75,6 +84,12 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         LogoutBtn.setOnClickListener(view -> {
+
+//            SharedPreferences preferences =getSharedPreferences(FILE_NAME,MODE_PRIVATE);
+//            SharedPreferences.Editor editor = preferences.edit();
+//            editor.clear();
+//            editor.apply();
+//            finish();
             Intent o = new Intent(HomeActivity.this,MainActivity2.class);
             startActivity(o);
         });
@@ -171,5 +186,15 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if(backPressedTime+2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else {
+            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 }

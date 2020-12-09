@@ -56,30 +56,6 @@
         android:layout_below="@+id/loginEditTextEmail"
         android:layout_marginTop="30dp"
         android:background="@drawable/custominput2"/>
-    <LinearLayout
-        android:id="@+id/llremembermeforgetpass"
-        android:layout_below="@+id/loginEditTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content">
-
-        <CheckBox
-            android:id="@+id/remember_me_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remember Me"
-            android:textColor="@color/white"/>
-        <TextView
-            android:id="@+id/link_forgot_password"
-            android:layout_width="wrap_content"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Forgot Password"/>
-
-
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/loginButton"
@@ -88,18 +64,31 @@
         android:background="@drawable/custom_button"
         android:layout_marginTop="20dp"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/llremembermeforgetpass"
+        android:layout_below="@+id/loginEditTextPassword"
         android:text="Login"
         android:textStyle="bold"/>
-
+<LinearLayout
+    android:id="@+id/ll_login_links"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/loginButton"
+    android:layout_centerInParent="true">
     <TextView
         android:id="@+id/new_user_link"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:text="  I am a New User"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/loginButton"
+        android:text="I am a New User"
         android:layout_marginTop="30dp"
         android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/forgot_password_link"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_height="25dp"
+        android:text="Forgot Password"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
 
 </RelativeLayout>

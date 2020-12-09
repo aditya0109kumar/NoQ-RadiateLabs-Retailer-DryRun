@@ -3,6 +3,7 @@ package com.aditya.newtest2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -26,15 +27,19 @@ import java.sql.Statement;
 
 public class Login extends AppCompatActivity {
 
+    private static final String FILE_NAME = "myFile";
+    private long backPressedTime;
+    private  Toast backToast;
     //    String Email = getIntent().getStringExtra("Email");
 //    String Password = getIntent().getStringExtra("Password");
 //    int Store_ID=0;
     Animation topAnim, bottomAnim;
+    ProgressDialog progressDialog;
     String emailloginstring, passwordloginstring, StoreEmail, StorePassword;
     EditText loginEmail, loginPassword;
     Button loginButton;
     TextView newUserLink, forgotPasswordLink;
-    CheckBox rememberMeChkBox;
+
 
 
     private static final String url = "jdbc:mysql://ec2-13-234-120-100.ap-south-1.compute.amazonaws.com:3306/myDB";
@@ -54,8 +59,8 @@ public class Login extends AppCompatActivity {
         loginPassword = (EditText) findViewById(R.id.loginEditTextPassword);
         loginButton = (Button) findViewById(R.id.loginButton);
         newUserLink = (TextView) findViewById(R.id.new_user_link);
-        forgotPasswordLink = (TextView) findViewById(R.id.link_forgot_password);
-        rememberMeChkBox = (CheckBox) findViewById(R.id.remember_me_checkbox);
+        forgotPasswordLink = (TextView) findViewById(R.id.forgot_password_link);
+
 
         loginEmail.setAnimation(bottomAnim);
         loginPassword.setAnimation(bottomAnim);
@@ -73,6 +78,11 @@ public class Login extends AppCompatActivity {
 //                if (loginEmail.getText().toString().trim().length() > 0 || loginPassword.getText().toString().trim().length() > 0) {
 //                    Toast.makeText(Login.this, "Fill the all details", Toast.LENGTH_SHORT).show();
 //                } else {
+                progressDialog = new ProgressDialog(Login.this);
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                progressDialog.show();
+
                 ConnectMySqlLogin connectMySql = new ConnectMySqlLogin();
                 connectMySql.execute("");
 //                }
@@ -117,9 +127,14 @@ public class Login extends AppCompatActivity {
 //                    editor.putString("email", loginEmail.getText().toString());
 //                    editor.commit();
 
+                    String spemail, sppassword;
+                    spemail = loginEmail.getText().toString();
+                    sppassword = loginPassword.getText().toString();
+                    StoredDataUsingSharedPref(spemail, sppassword);
+
                     Intent i = new Intent(Login.this, HomeActivity.class);
-                    i.putExtra("STORE_EMAIL", StoreEmail);
-                    i.putExtra("STORE_PASSWORD", StorePassword);
+//                    i.putExtra("STORE_EMAIL", StoreEmail);
+//                    i.putExtra("STORE_PASSWORD", StorePassword);
                     startActivity(i);
                 }
             } catch (Exception e) {
@@ -135,11 +150,37 @@ public class Login extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             Toast.makeText(Login.this, result, Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+
+
+//            if (rememberMeChkBox.isChecked()) {
+//
+//            }
+
+
         }
+    }
+
+    private void StoredDataUsingSharedPref(String spemail, String sppassword) {
+
+        SharedPreferences.Editor editor = getSharedPreferences(FILE_NAME, MODE_PRIVATE).edit();
+        editor.putString("email", spemail);
+        editor.putString("password", sppassword);
+        editor.apply();
     }
 
     @Override
     public void onBackPressed() {
+        if(backPressedTime+2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else {
+            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 
 

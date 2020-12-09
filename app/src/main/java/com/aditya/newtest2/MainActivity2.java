@@ -1,5 +1,6 @@
 package com.aditya.newtest2;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Image;
 import android.os.AsyncTask;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import java.sql.Statement;
 public class MainActivity2 extends AppCompatActivity {
 
     EditText email, password, cPassword;
+    ProgressDialog progressDialog;
     Animation topAnim, bottomAnim;
     ImageView userLogo;
     String emailQ, passQ, cPassQ;
@@ -51,6 +54,7 @@ public class MainActivity2 extends AppCompatActivity {
         register = (Button) findViewById(R.id.registerButton);
         alreadyRegistered = (TextView) findViewById(R.id.already_registered_link);
 
+
         userLogo.setAnimation(topAnim);
         email.setAnimation(bottomAnim);
         password.setAnimation(bottomAnim);
@@ -62,6 +66,12 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 // TODO Auto-generated method stub
+
+                progressDialog = new ProgressDialog(MainActivity2.this);
+                progressDialog.setContentView(R.layout.progress_dialog);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                progressDialog.show();
+
                 ConnectMySql connectMySql = new ConnectMySql();
                 connectMySql.execute("");
             }
@@ -124,6 +134,8 @@ public class MainActivity2 extends AppCompatActivity {
             Toast.makeText(MainActivity2.this, result, Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(getApplicationContext(), Login.class));
+
+            progressDialog.dismiss();
 
             
         }

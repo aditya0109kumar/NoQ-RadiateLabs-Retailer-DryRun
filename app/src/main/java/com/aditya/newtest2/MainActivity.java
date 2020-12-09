@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Statement st = con.createStatement();
 //                ResultSet rs =
                         st.executeUpdate("INSERT INTO `New_Store_Table`(`Email`, `Password`) " +
-                                "VALUES ('Tushti','MyLove')");
+                                "VALUES ('My email','My password')");
 //                ResultSetMetaData rsmd = rs.getMetaData();
 
 //                while (rs.next()) {
