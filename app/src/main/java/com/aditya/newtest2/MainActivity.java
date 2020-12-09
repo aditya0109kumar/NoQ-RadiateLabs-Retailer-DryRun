@@ -72,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
 //                ResultSet rs =
-                        st.executeUpdate("INSERT INTO `New_Store_Table`(`Email`, `Password`) VALUES ('Tushti','MyLove')");
+                        st.executeUpdate("INSERT INTO `New_Store_Table`(`Email`, `Password`) " +
+                                "VALUES ('Tushti','MyLove')");
 //                ResultSetMetaData rsmd = rs.getMetaData();
 
 //                while (rs.next()) {
